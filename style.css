@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Tahoma, sans-serif;
+}
+
+body {
+  background-color: #78cf78;
+  max-width: 100%;
+}
+
+h1 {
+  color: black;
+  font-weight: bolder;
+  font-size: 29px;
+  margin-bottom: 20px;
+}
+
+#formBox {
+  background-color: white;
+  position: fixed;
+  padding: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 2px white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+input {
+  font-size: 13px;
+  font-weight: bolder;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  outline: none;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+button {
+  background: rgb(0, 155, 226);
+  font-weight: bold;
+  margin: 10px;
+  border: 4px double white;
+  color: white;
+  width: 140px;
+  padding: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#resetButton {
+  background: rgb(255, 50, 50);
+}
+
+button:active {
+  transform: scale(1.06) perspective(0.1px);
+}
+
+#drawnOutput {
+  position: static;
+  background: rgb(0, 155, 226);
+  color: white;
+  padding: 10px;
+  font-size: 19.6px;
+  font-weight: bolder;
+  border-radius: 50%;
+  height: 110px;
+  width: 110px;
+  line-height: 4.2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 80px;
+  margin-left: 50%;
+  border: 3px solid black;
+  margin-bottom: -60px;
+}
+
+#bingoCardsContainer {
+  width: 75%;
+  float: left;
+}
+
+#bingoCards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#container {
+  width: 25%;
+  float: right;
+}
+
+#ballDrawnHistory {
+  position: fixed;
+  height: 50vh;
+  width: 25%;
+  display: none;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+#table {
+  display: inline-block;
+}
+
+#drawBox {
+  position: fixed;
+
+  width: 25%;
+  display: none;
+  margin-top: 450px;
+  padding-bottom: 10px;
+}
+
+#drawBox > h1 {
+  margin-top: 10px;
+}
+
+table {
+  margin: 5px;
+  background-color: #f7f7f7;
+  border: 2px solid black;
+}
+
+th,
+td {
+  height: 41px;
+  width: 43px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+th {
+  background-color: rgb(255, 69, 69);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+td {
+  border-color: white;
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 980px) {
+  #bingoCardsContainer {
+    width: 55%;
+  }
+
+  #container {
+    width: 45%;
+  }
+
+  #ballDrawnHistory {
+    width: 45%;
+  }
+
+  #drawBox {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  #bingoCards {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 659px) {
+  #bingoCardsContainer {
+    width: 50%;
+  }
+
+  #bingoCards {
+    display: inline-block;
+  }
+
+  #container {
+    width: 50%;
+  }
+
+  #ballDrawnHistory {
+    width: 50%;
+  }
+
+  #drawBox {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: large;
+  }
+
+  #drawnOutput {
+    font-size: 15.6px;
+    font-weight: bolder;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    line-height: 3.6;
+    margin-top: 55px;
+    margin-left: 50%;
+    border: 3px solid black;
+    margin-bottom: -52px;
+  }
+
+  td {
+    border-radius: 0;
+  }
+
+  input {
+    font-size: 12px;
+    font-weight: 550;
+    width: 140px;
+  }
+
+  button {
+    font-weight: 300;
+    margin-bottom: 5px;
+    border: 4px double white;
+    width: 120px;
+    padding: 4px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  td {
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: x-large;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  #drawBox {
+    margin-top: 49.6vh;
+  }
+}
+
+@media screen and (max-width: 1441px) and (min-width: 428px) and (max-height: 774px) {
+  #ballDrawnHistory {
+    height: 58vh;
+  }
+}
+
+@media screen and (min-width: 540px) and (min-height: 720px) {
+  #drawBox {
+    margin-top: 50vh;
+  }
+}
+
+@media screen and (min-width: 500px) and (min-height: 700px) and (max-width:540px) and (max-height:720px) {
+  #drawBox {
+    margin-top: 56.9vh;
+  }
+}
+
+
+@media screen and (min-width: 800px) and (min-height: 1280px) {
+  #drawBox {
+    margin-top: 60vh;
+  }
+
+  #ballDrawnHistory {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 1024px) and (max-height: 600px) {
+  #drawBox {
+    margin-top: 47vh;
+  }
+
+  #ballDrawnHistory {
+    height: 48vh;
+  }
+}
