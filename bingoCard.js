@@ -1,5 +1,4 @@
 class BingoCard {
-
     constructor(id) {
         this.id = id;
         this.matrix = [[], [], [], [], []];
@@ -24,25 +23,27 @@ class BingoCard {
         }
     }
 
-    drawCard() {
-        let letterID = ['B', 'I', 'N', 'G', 'O'],
-            newCard = `<table><tr><th>B</th><th>I</th><th>N</th><th>G</th><th>O</th></tr>`;
+    drawCard(cardNo) {
+        let letterID = ['B', 'I', 'N', 'G', 'O'];
+        let newCard = $("<table>")
+            .append($("<tr>").append($(`<th colspan="5" id="${cardNo}">`).text(`Player ${cardNo} Card`)))
+            .append($("<tr>").append(letterID.map(letter => $("<th>").text(letter))));
 
         for (let i = 0; i < 5; i++) {
-            newCard += `<tr>`;
+            let row = $("<tr>");
 
             for (let j = 0; j < 5; j++) {
+                let cell;
                 if (this.matrix[j][i] != this.matrix[2][2]) {
-                    newCard += `<td class='bingoCell' id='${this.id}${letterID[j]}${i}'>${this.matrix[i][j]}</td>`;
+                    cell = $("<td>").addClass("bingoCell").attr("id", `${this.id}${letterID[j]}${i}`).text(this.matrix[i][j]);
                 } else {
-                    newCard += `<td style='background-color: yellow; border-color: black;' id='${this.id}${letterID[j]}${i}'>Free</td>`;
+                    cell = $("<td>").css({"background-color": "rgb(251, 236, 93)", "border-color": "black"}).attr("id", `${this.id}${letterID[j]}${i}`).text("Free");
                 }
+                row.append(cell);
             }
 
-            newCard += `</tr>`;
+            newCard.append(row);
         }
-
-        newCard += `</table>`;
 
         return newCard;
     }

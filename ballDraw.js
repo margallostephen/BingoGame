@@ -1,5 +1,4 @@
 class BallDraw {
-
     constructor() {
         this.ballDrawns = [];
     }
@@ -16,18 +15,22 @@ class BallDraw {
     }
 
     markCards() {
-        let cells = document.getElementsByTagName('td');
+        let cells = $('td');
 
         for (let cell of cells) {
             for (let ball of this.ballDrawns) {
-                if (cell.innerHTML == ball) {
-                    cell.style.backgroundColor = 'rgb(0, 155, 226)';
-                    cell.style.color = 'white';
-                    cell.style.borderColor = 'black';
+                if ($(cell).text() == ball) {
+                    $(cell).css({
+                        'background-color': '#4a90e2',
+                        'color': 'white',
+                        'border-color': 'black'
+                    });
 
-                    if (cell.classList.contains('bingoCell')) {
-                        cell.style.backgroundColor = 'yellow';
-                        cell.style.color = 'black';
+                    if ($(cell).hasClass('bingoCell')) {
+                        $(cell).css({
+                            'background-color': 'rgb(251, 236, 93)',
+                            'color': 'black'
+                        });
                     }
                 }
             }
