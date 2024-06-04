@@ -1,156 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="bingoCard.js"></script>
-    <script src="ballDraw.js"></script>
-    <title>Bingo ka saken</title>
-  </head>
 
-  <body>
-    <div id="formBox">
-      <form onsubmit="return false">
-        <h1>BINGO CARD GAME</h1>
-        <input type="text" id="num" placeholder="How many player/s" /><br />
-        <button id="drawCardBtn" onclick="createBingoCard()">DRAW CARD</button>
-      </form>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="bingoCard.js"></script>
+  <script src="ballDraw.js"></script>
+  <title>Bingo ka saken</title>
+</head>
+
+<body>
+  <div id="formBox">
+    <form onsubmit="return false">
+      <h1>Bingo Card Game</h1>
+      <input type="text" id="num" name="num" placeholder="How many players" /><br />
+      <button id="drawCardBtn" onclick="createBingoCard()">Draw Card</button>
+    </form>
+  </div>
+  <div class="game-container">
     <div id="bingoCardsContainer">
       <div id="bingoCards"></div>
     </div>
-    <div id="container">
-      <div id="ballDrawnHistory">
-        <div id="table">
-          <table>
-            <tr>
-              <th colspan="5">BALL DRAWN HISTORY</th>
-            </tr>
-            <tr>
-              <th>B</th>
-              <th>I</th>
-              <th>N</th>
-              <th>G</th>
-              <th>O</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>16</td>
-              <td>31</td>
-              <td>46</td>
-              <td>61</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>17</td>
-              <td>32</td>
-              <td>47</td>
-              <td>62</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>18</td>
-              <td>33</td>
-              <td>48</td>
-              <td>63</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>19</td>
-              <td>34</td>
-              <td>49</td>
-              <td>64</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>20</td>
-              <td>35</td>
-              <td>50</td>
-              <td>65</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>21</td>
-              <td>36</td>
-              <td>51</td>
-              <td>66</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>22</td>
-              <td>37</td>
-              <td>52</td>
-              <td>67</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>23</td>
-              <td>38</td>
-              <td>53</td>
-              <td>68</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>24</td>
-              <td>39</td>
-              <td>54</td>
-              <td>69</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>25</td>
-              <td>40</td>
-              <td>55</td>
-              <td>70</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>26</td>
-              <td>41</td>
-              <td>56</td>
-              <td>71</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>27</td>
-              <td>42</td>
-              <td>57</td>
-              <td>72</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td>28</td>
-              <td>43</td>
-              <td>58</td>
-              <td>73</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td>29</td>
-              <td>44</td>
-              <td>59</td>
-              <td>74</td>
-            </tr>
-            <tr>
-              <td>15</td>
-              <td>30</td>
-              <td>45</td>
-              <td>60</td>
-              <td>75</td>
-            </tr>
-          </table>
-        </div>
-      </div>
+    <div class="control-container">
       <div id="drawBox">
         <h1>Current Ball</h1>
         <p id="drawnOutput">0</p>
         <br />
-        <button id="drawButton">DRAW BALL</button><br />
-        <button onclick="resetGame()" id="resetButton">RESET GAME</button>
+        <button id="drawButton">Draw Ball</button><br />
+        <button onclick="resetGame()" id="resetButton">Reset Game</button>
+      </div>
+      <div id="ballDrawnHistory">
+        <table>
+          <tr>
+            <th colspan="5">Ball Drawn History</th>
+          </tr>
+          <tr>
+            <th>B</th>
+            <th>I</th>
+            <th>N</th>
+            <th>G</th>
+            <th>O</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>16</td>
+            <td>31</td>
+            <td>46</td>
+            <td>61</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>17</td>
+            <td>32</td>
+            <td>47</td>
+            <td>62</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>18</td>
+            <td>33</td>
+            <td>48</td>
+            <td>63</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>19</td>
+            <td>34</td>
+            <td>49</td>
+            <td>64</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>20</td>
+            <td>35</td>
+            <td>50</td>
+            <td>65</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>21</td>
+            <td>36</td>
+            <td>51</td>
+            <td>66</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>22</td>
+            <td>37</td>
+            <td>52</td>
+            <td>67</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>23</td>
+            <td>38</td>
+            <td>53</td>
+            <td>68</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>24</td>
+            <td>39</td>
+            <td>54</td>
+            <td>69</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>25</td>
+            <td>40</td>
+            <td>55</td>
+            <td>70</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>26</td>
+            <td>41</td>
+            <td>56</td>
+            <td>71</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>27</td>
+            <td>42</td>
+            <td>57</td>
+            <td>72</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>28</td>
+            <td>43</td>
+            <td>58</td>
+            <td>73</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>29</td>
+            <td>44</td>
+            <td>59</td>
+            <td>74</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>30</td>
+            <td>45</td>
+            <td>60</td>
+            <td>75</td>
+          </tr>
+        </table>
       </div>
     </div>
-    <script src="main.js"></script>
-  </body>
+  </div>
+  <script src="main.js"></script>
+</body>
+
 </html>
